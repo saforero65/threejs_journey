@@ -1,0 +1,26 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "exercise description",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "three.js, node, vite"
+  ],
+  "author": "Agox - Santiago Forero Zapata",
+  "license": "ISC",
+  "homepage": "http:// ",
+  "repository": {
+    "type": "git",
+    "url": " "
+  },
+  "dependencies": {
+    "three": "^0.164.1",
+    "vite": "^5.2.11"
+  }
+}

@@ -1,9 +1,9 @@
+import GUI from 'lil-gui'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import GUI from 'lil-gui'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
-import holographicVertexShader from './shaders/holographic/vertex.glsl'
 import holographicFragmentShader from './shaders/holographic/fragment.glsl'
+import holographicVertexShader from './shaders/holographic/vertex.glsl'
 
 /**
  * Base
@@ -76,16 +76,30 @@ gui
         renderer.setClearColor(rendererParameters.clearColor)
     })
 
+
 /**
  * Material
  */
+const materialParamenters = {}
+materialParamenters.color = '#ff0000'
+
+gui.addColor(materialParamenters, 'color')
+    .onChange(() =>
+    {
+        material.uniforms.uColor.value.set(materialParamenters.color)
+    })
+
 const material = new THREE.ShaderMaterial({
     vertexShader: holographicVertexShader,
     fragmentShader: holographicFragmentShader,
     uniforms: {
-        uTime: new THREE.Uniform(0)
-    }
-    
+        uTime: new THREE.Uniform(0),
+        uColor: new THREE.Uniform(new THREE.Color(materialParamenters.color))
+    },
+    transparent: true,
+    side: THREE.DoubleSide,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending
 })
 
 /**

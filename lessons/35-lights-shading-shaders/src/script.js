@@ -1,9 +1,9 @@
+import GUI from 'lil-gui'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import GUI from 'lil-gui'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
-import shadingVertexShader from './shaders/shading/vertex.glsl'
 import shadingFragmentShader from './shaders/shading/fragment.glsl'
+import shadingVertexShader from './shaders/shading/vertex.glsl'
 
 /**
  * Base
@@ -127,6 +127,25 @@ gltfLoader.load(
         scene.add(suzanne)
     }
 )
+/**
+ * Light Helpers
+ */
+const directionalLightHelper = new THREE.Mesh(
+    new THREE.PlaneGeometry(),
+    new THREE.MeshBasicMaterial()
+)
+directionalLightHelper.material.color.setRGB(0.1, 0.1, 1)
+directionalLightHelper.material.side = THREE.DoubleSide
+directionalLightHelper.position.set(0, 0, 3)
+scene.add(directionalLightHelper)
+
+const pointLightHelper = new THREE.Mesh(
+    new THREE.SphereGeometry(0.1,2),
+    new THREE.MeshBasicMaterial()
+)
+pointLightHelper.material.color.setRGB(1, 0.1, 0.1)
+pointLightHelper.position.set(0, 2.5, 0)
+scene.add(pointLightHelper)
 
 /**
  * Animate

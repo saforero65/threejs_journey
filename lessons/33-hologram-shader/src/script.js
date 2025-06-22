@@ -111,7 +111,7 @@ const torusKnot = new THREE.Mesh(
     material
 )
 torusKnot.position.x = 3
-scene.add(torusKnot)
+// scene.add(torusKnot)
 
 // Sphere
 const sphere = new THREE.Mesh(
@@ -119,15 +119,16 @@ const sphere = new THREE.Mesh(
     material
 )
 sphere.position.x = - 3
-scene.add(sphere)
+// scene.add(sphere)
 
 // Suzanne
 let suzanne = null
 gltfLoader.load(
-    './suzanne.glb',
+    './Dayo.glb',
     (gltf) =>
     {
         suzanne = gltf.scene
+        suzanne.scale.set(3, 3, 3) // Scale down the model
         suzanne.traverse((child) =>
         {
             if(child.isMesh)
@@ -136,6 +137,61 @@ gltfLoader.load(
         scene.add(suzanne)
     }
 )
+
+let suzanne2 = null
+gltfLoader.load(
+    './suzanne.glb',
+    (gltf) =>
+    {
+        suzanne2 = gltf.scene
+        
+        suzanne2.traverse((child) =>
+        {
+            if(child.isMesh)
+                child.material = material
+        })
+        suzanne2.position.x = - 3
+        suzanne2.position.y = 1.5
+        scene.add(suzanne2)
+    }
+)
+// let car = null
+// gltfLoader.load(
+//     './car.glb',
+//     (gltf) =>
+//     {
+//         car = gltf.scene
+//         car.scale.set(0.5, 0.5, 0.5) // Scale down the model
+//         car.traverse((child) =>
+//         {
+//             if (child.isMesh) {
+//                 child.material = material.clone(); // Apply the holographic material
+//                 child.material.uniforms = {
+//                     uTime: new THREE.Uniform(0),
+//                     uColor: new THREE.Uniform(new THREE.Color(materialParamenters.color))
+//                 }; // Ensure each material has its own uniforms
+//             }
+//         })
+//         scene.add(car)
+//     }
+// )
+
+// let sasRed = null
+// gltfLoader.load(
+//     './sas red.glb',
+//     (gltf) =>
+//     {
+//         sasRed = gltf.scene
+//         sasRed.scale.set(50, 50, 50) // Scale down the model
+//         sasRed.position.x = -1 // Move the model to the left
+//         sasRed.traverse((child) =>
+//         {
+//             if(child.isMesh)
+//                 child.material = material
+//         })
+//         scene.add(sasRed)
+//     }
+// )
 
 /**
  * Animate
@@ -150,11 +206,9 @@ const tick = () =>
     material.uniforms.uTime.value = elapsedTime
 
     // Rotate objects
-    if(suzanne)
-    {
-        suzanne.rotation.x = - elapsedTime * 0.1
-        suzanne.rotation.y = elapsedTime * 0.2
-    }
+    // if(suzanne)
+    // {
+   
 
     sphere.rotation.x = - elapsedTime * 0.1
     sphere.rotation.y = elapsedTime * 0.2

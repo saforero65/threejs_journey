@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particles</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .play-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .play-icon {
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 10px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+        .text {
+            margin-left: 20px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        .audio-info {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            z-index: 1000;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/index-D7sZgmrd.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DyxU-i5V.css">
+</head>
+<body>
+    <div class="audio-info">
+        <span id="state"></span>
+    </div>
+    <div class="play-button" onclick="startAudio()">
+        <div class="play-icon"></div>
+    </div>
+    <span class="text">Click to play</span>
+    <footer>
+        Music by <a href="https://pixabay.com/es/users/5xbeatz-39481357/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=201916">Aliabbas Abasov</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=201916">Pixabay</a>
+    </footer>
+    <canvas class="webgl"></canvas>
+</body>
+</html>

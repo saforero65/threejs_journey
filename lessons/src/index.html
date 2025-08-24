@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Journey - Showcase</title>
+    <meta name="description"
+        content="Explora todos los proyectos del curso Three.js Journey - Desde conceptos básicos hasta shaders avanzados">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <h1>Three.js Journey</h1>
+                        <span class="subtitle">Interactive Showcase</span>
+                    </div>
+                    <nav class="nav">
+                        <button class="nav-btn" data-category="all">Todos</button>
+                        <button class="nav-btn" data-category="Básico">Básico</button>
+                        <button class="nav-btn" data-category="Intermedio">Intermedio</button>
+                        <button class="nav-btn" data-category="Avanzado">Avanzado</button>
+                        <button class="nav-btn" data-category="Proyecto">Proyectos</button>
+                        <button class="nav-btn" data-category="Shaders">Shaders</button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Domina Three.js paso a paso</h2>
+                    <p>Explora una colección completa de proyectos interactivos que te llevarán desde los conceptos
+                        básicos hasta las técnicas más avanzadas de Three.js y WebGL.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number" id="project-count">0</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Categorías</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Horas de contenido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filter -->
+        <section class="filters">
+            <div class="container">
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Buscar proyectos...">
+                        <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div class="difficulty-filter">
+                        <label>Dificultad:</label>
+                        <select id="difficulty-select">
+                            <option value="">Todas</option>
+                            <option value="1">⭐ Principiante</option>
+                            <option value="2">⭐⭐ Fácil</option>
+                            <option value="3">⭐⭐⭐ Intermedio</option>
+                            <option value="4">⭐⭐⭐⭐ Avanzado</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Experto</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <main class="projects">
+            <div class="container">
+                <div id="projects-grid" class="projects-grid">
+                    <!-- Los proyectos se cargarán dinámicamente -->
+                </div>
+                <div id="loading" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Cargando proyectos...</p>
+                </div>
+                <div id="no-results" class="no-results" style="display: none;">
+                    <h3>No se encontraron proyectos</h3>
+                    <p>Intenta con diferentes términos de búsqueda o filtros.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Project Modal -->
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="modal-header">
+                    <h3 id="modal-title"></h3>
+                    <div class="modal-meta">
+                        <span id="modal-category" class="category-badge"></span>
+                        <span id="modal-difficulty" class="difficulty-badge"></span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-description"></p>
+                    <div class="modal-actions">
+                        <button id="modal-view-btn" class="btn btn-primary">Ver Proyecto</button>
+                        <button id="modal-fullscreen-btn" class="btn btn-secondary">Pantalla Completa</button>
+                        <button id="modal-info-btn" class="btn btn-info">ℹ️ Info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Background -->
+    <canvas id="background-canvas"></canvas>
+
+    <script type="module" src="/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "threejs-journey-showcase",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/setup-showcase.js && vite build",
+    "build-project": "node scripts/build-project.js",
+    "build-all-projects": "node scripts/build-all.js",
+    "setup": "node scripts/setup-showcase.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.3.3",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10"
+  },
+  "dependencies": {
+    "three": "^0.166.1"
+  }
+}
